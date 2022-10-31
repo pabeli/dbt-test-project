@@ -7,9 +7,9 @@ dbt_test:
     dev:
       type: postgres
       threads: 1
-      host: localhost
-      port: 5432
-      user: dbt
-      pass: password1234
-      dbname: dbt
-      schema: warehouse
+      host: "{{ env_var(POSTGRES_HOST) }}"
+      port: "{{ env_var(POSTGRES_PORT)}}"
+      user: "{{ env_var(POSTGRES_USER)}}"
+      pass: "{{ env_var(POSTGRES_PASSWORD)}}"
+      dbname: "{{ env_var(POSTGRES_DB)}}"
+      schema: "{{ env_var(POSTGRES_SCHEMA)}}"
